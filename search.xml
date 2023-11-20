@@ -19,12 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>article title</title>
-    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
-    <content><![CDATA[<p>文明是生存的火种！</p>
-]]></content>
-  </entry>
-  <entry>
     <title>上机实践 一</title>
     <url>/2023/11/21/%E4%B8%8A%E6%9C%BA%E5%AE%9E%E8%B7%B5-%E4%B8%80/</url>
     <content><![CDATA[<h1 id="Java入门"><a href="#Java入门" class="headerlink" title="Java入门"></a>Java入门</h1><h2 id="实验一-一个简单的应用程序"><a href="#实验一-一个简单的应用程序" class="headerlink" title="实验一 一个简单的应用程序"></a>实验一 一个简单的应用程序</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>掌握开发 Java 应用程序的 3 个步骤，即编写源文件、编译源文件和运行应用程序。</p>
@@ -53,6 +47,12 @@
       <tags>
         <tag>习</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>article title</title>
+    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
+    <content><![CDATA[<p>文明是生存的火种！</p>
+]]></content>
   </entry>
   <entry>
     <title>致橡树</title>
