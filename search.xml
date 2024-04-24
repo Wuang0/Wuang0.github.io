@@ -102,4 +102,32 @@
         <tag>IP配置、HADOOP shell</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hive基础操作&amp;数仓知识</title>
+    <url>/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
+<p>数仓：<strong>查询分析</strong></p>
+<span id="more"></span>
+<p><strong>操作型处理(数据库)<strong>，叫</strong>联机事务处理OLTP（On-Line Transaction Processing）</strong></p>
+<p>数据库是<strong>结构化信息或数据的有序集合</strong>，一般以电子形式存储在计算机系统中。通常由数据库管理系统 (DBMS) 来控制。在现实中，数据、DBMS 及关联应用一起被称为数据库系统，通常简称为数据库。为了提高数据处理和查询效率，当今最常见的数据库通常以行和列的形式将数据存储在一系列的表中，支持用户便捷地访问、管理、修改、更新、控制和组织数据。另外，大多数数据库都使用结构化查询语言 (SQL) 来编写和查询数据。</p>
+<p><strong>分析型处理(数据仓库)<strong>，叫</strong>联机分析处理OLAP（On-Line Analytical Processing）</strong></p>
+<p>数据仓库将各个<strong>异构的数据源数据库</strong>的数据给统一管理起来，并且完成了质量较差的数据的剔除、格式转换，最终按照一种合理的建模方式来完成源数据组织形式的转变，以更好的支持到前端的可视化分析。数据仓库的输入方式是各种各样的数据源，最终的输出用于企业的数据分析、数据挖掘、数据报表等方向。</p>
+<h4 id="数仓分层架构"><a href="#数仓分层架构" class="headerlink" title="数仓分层架构"></a>数仓分层架构</h4><p>源数据层(ODS)，数据仓库层(DW)，数据应用层(DZ)。</p>
+<p>ETL是用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程。</p>
+<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png" alt="图片"></p>
+<h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p>Hive是操作数据仓库的一个工具，使用类SQL语句进行操作。</p>
+<h4 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a><strong>库操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">creat database [if not exists] 数据库名 [location &#x27;/****&#x27;]；</span><br><span class="line"># 创建数据库，其在HDFS的默认路径为/user/hive/warehouse/~.db</span><br><span class="line"># []中内容可加可不加，if not exists 加上时，创建数据库是判断若不存在，则创建数据库。</span><br><span class="line"># location &#x27;/****&#x27;指定一个已经存在的文件夹作为数据库的内容存放位置</span><br><span class="line">show database 数据库；</span><br><span class="line"># 显示数据库内容</span><br><span class="line">use 数据库；</span><br><span class="line"># 使用指定数据库；</span><br><span class="line">drop database if exists 数据库;</span><br><span class="line"># 如果数据库存在且为空，则删除。</span><br><span class="line">drop database if exists 数据库 cascade;</span><br><span class="line"># 如果数据库存在，则删除。</span><br></pre></td></tr></table></figure>
+
+<h4 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a><strong>表操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table [if not exists]表名(列名 列数据类型，… …);</span><br><span class="line"># 创建表，并设置数据类型</span><br><span class="line">drop table student;</span><br><span class="line"># 删除表</span><br><span class="line">show tables;</span><br><span class="line"># 查看当前数据库所有表</span><br><span class="line">insert into 表 values (数据，数据);</span><br><span class="line"># 向表中插入数据，可一次插入多条数据。</span><br><span class="line">desc 表名;</span><br><span class="line"># 查看表结构信息；</span><br><span class="line">alter table 旧名 rename to 新名；</span><br><span class="line">#修改表名</span><br><span class="line">alter table 表名 set tblproperties (&#x27;属性名&#x27;=&#x27;属性值&#x27;)；</span><br><span class="line">#修改表属性</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;TRUE&#x27;);</span><br><span class="line">#转为外部表</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;FALSE&#x27;);</span><br><span class="line">#转为内部表</span><br><span class="line">create table student(id int, name string) </span><br><span class="line">row format delimited fields terminated by &#x27;\t&#x27;;</span><br><span class="line">#  创建表并设置表中数据的分隔符(以制表符为例)</span><br></pre></td></tr></table></figure>
+
+<h4 id="数据间隔符"><a href="#数据间隔符" class="headerlink" title="数据间隔符"></a><strong>数据间隔符</strong></h4><p>创建hive基础表的时候,默认的数据间分隔符是：\001(^A)是一种特殊字符，是ASCII值，在Notepad++文本编辑器中是显示为SOH的。</p>
+<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png" alt="图片"></p>
+<h4 id="内部表与外部表"><a href="#内部表与外部表" class="headerlink" title="内部表与外部表"></a><strong>内部表与外部表</strong></h4><p>内部表删除表时，元数据与数据都会被删除；</p>
+<p>外部表删除只删除metastore的元数据，不删除hdfs中的表数据</p>
+<p>创建表的时候，内部表直接存储在默认的hdfs路径，不带数据;外部表需要自己指定路径,带数据。</p>
+]]></content>
+      <tags>
+        <tag>Hive 数据仓库 数据库 idea</tag>
+      </tags>
+  </entry>
 </search>
