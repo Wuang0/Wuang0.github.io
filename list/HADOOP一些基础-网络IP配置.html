@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="HADOOP一些基础&amp;网络IP配置" />
+    <meta name="hexo-theme-A4" content="v1.9.7" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>青氣 | 心之所向，素履以往</title>
+
+    
+        
+<link rel="stylesheet" href="/css/highlight/style1.css">
+
+        
+<link rel="stylesheet" href="/css/reset.css">
+
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 0; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">青氣</a> 
+            <span class="description">个人博客，大数据专业生，学习之路，会接触方方面面的知识，大数据，信息安全。</span> 
+        </div>
+    </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><i>
+                    
+                        <a style="color: #4e7dde;" href="/list/">文章</a>
+                    
+                </i></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
+
+    
+
+    
+
+    <div class="post-md">
+        
+            
+        
+        <div class=".article-gallery"><h1 id="HADOOP一些基础-amp-网络IP配置"><a href="#HADOOP一些基础-amp-网络IP配置" class="headerlink" title="HADOOP一些基础&amp;网络IP配置"></a>HADOOP一些基础&amp;网络IP配置</h1><h2 id="HADOOP"><a href="#HADOOP" class="headerlink" title="HADOOP"></a>HADOOP</h2><h5 id="Hadoop的Web界面"><a href="#Hadoop的Web界面" class="headerlink" title="Hadoop的Web界面"></a>Hadoop的Web界面</h5><p>50070端口是Hadoop 浏览器进行访问 namenode 节点，监控其各个 datanode 的服务端口，</p>
+<ul>
+<li><p>Hadoop-2.x 版本，端口号50070</p>
+</li>
+<li><p>Hadoop-3.x 版本，端口号9870</p>
+<span id="more"></span>
+<h5 id="Hadoop-资源管理服务"><a href="#Hadoop-资源管理服务" class="headerlink" title="Hadoop 资源管理服务"></a>Hadoop 资源管理服务</h5></li>
+</ul>
+<p>端口号 8088</p>
+<h5 id="Hadoop历史日志服务"><a href="#Hadoop历史日志服务" class="headerlink" title="Hadoop历史日志服务"></a>Hadoop历史日志服务</h5><p>端口号 19888</p>
+<h3 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h3><p>文件系统上的文件分片储存在 Datanode 节点上，可设置副本数，每片大小一样，只有最后一片可能不一样。</p>
+<h2 id="shell-命令"><a href="#shell-命令" class="headerlink" title="shell 命令"></a>shell 命令</h2><ul>
+<li><strong>cd -</strong> #返回上一次操作的地方</li>
+<li><strong>cd ..</strong> #返回上一级目录</li>
+<li><strong>ls</strong> #列出目录及文件信息</li>
+<li><strong>ll</strong>   #列出目录及文件详细信息</li>
+<li><strong>shutdown -h now</strong> #关机</li>
+</ul>
+<h2 id="访问HDFS的命令"><a href="#访问HDFS的命令" class="headerlink" title="访问HDFS的命令"></a>访问HDFS的命令</h2><ul>
+<li><strong>hadoop fs</strong> </li>
+<li><strong>hdfs dfs</strong> </li>
+</ul>
+<p>两者都可。</p>
+<h2 id="Hadoop常用命令"><a href="#Hadoop常用命令" class="headerlink" title="Hadoop常用命令"></a>Hadoop常用命令</h2><ul>
+<li><strong>hdfs dfs -ls</strong>#列出目录及文件信息</li>
+<li><strong>hdfs dfs -put 本地文件 /hadoop</strong> #将本地文件系统的文件上传到分布式文件系统</li>
+<li><strong>hdfs dfs -get /hadoop</strong>#本地将文件系统的文件下载到本地</li>
+<li><strong>hdfs dfs -cp SCR [SCR …] DST</strong>  #将文件从SRC复制到DST，如果指定了多个SRC，则DST必须为一个目录</li>
+<li><strong>hadoop job -kill job编号</strong> #当 Hadoop 任务无法正常完成时，可用此命令杀死该任务。job 编号在 Hadoop 资源管理服务网页上</li>
+<li><strong>hadoop job -list</strong> #查看 Hadoop 任务列表，该命令也会显示 job 编号</li>
+</ul>
+<h2 id="Hive"><a href="#Hive" class="headerlink" title="*Hive"></a>*Hive</h2><p>Hive 是一个基于 Hadoop 的数据仓库的处理工具。</p>
+<p>数据库需要用SQL语句查询，但是MR（MapReduce）却不能用SQL。</p>
+<p>Hive在Hadoop生态圈中，可进行类似SQL的操作，使用MR进行运算。</p>
+<p>Hive 需要指定行分隔符、列分隔符、读取文件数据的方法。默认分隔符是一个键盘输入不了的字符。</p>
+<h2 id="网络IP设置"><a href="#网络IP设置" class="headerlink" title="网络IP设置"></a>网络IP设置</h2><h4 id="VMnet8网络配置"><a href="#VMnet8网络配置" class="headerlink" title="VMnet8网络配置"></a>VMnet8网络配置</h4><p>虚拟机中网卡的配置信息在 <strong>/etc/sysconfig/network-scripts/ifcfg-XXX</strong> 文件中，XXX为设备编号。在CentOS7.0虚拟机中，网卡 <strong>ifcfg-ens33</strong>。</p>
+<p>配置：</p>
+<p><a href="IP%E8%AE%BE%E7%BD%AE.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/list/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%A/IP%E8%AE%BE%E7%BD%AE.png" alt="图片"></a></p>
+<ol>
+<li><p><strong>BOOTPROTO</strong> 要设为static；</p>
+</li>
+<li><p><strong>IPADDR</strong> 的地址其网段要和VMnet8的网段一致，后三位选择自己喜欢的地址就行；(IP地址前三格相同表示同一个网段)</p>
+</li>
+<li><p><strong>GATEWAY</strong>（网关）与VMnet8一致；</p>
+</li>
+<li><p><strong>ONBOOT</strong> 修改为yes</p>
+</li>
+<li><p><strong>DNS</strong> 的设置要和物理主机的DNS地址一致，有几个就设几个按照DNS1、DNS2…设置即可。</p>
+</li>
+</ol>
+<h4 id="配置好之后，在虚拟机终端中重启网络服务"><a href="#配置好之后，在虚拟机终端中重启网络服务" class="headerlink" title="配置好之后，在虚拟机终端中重启网络服务"></a>配置好之后，在虚拟机终端中重启网络服务</h4><p><strong>sudo systemctl restart network</strong>  #重启网卡</p>
+</div>
+    </div>
+
+    <div class="post-meta">
+        <i>
+        
+        </i>
+    </div>
+    <br>
+    
+    
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+
+                
+            </div>
+    
+        
+    
+
+    
+        
+
+     
+</div>
+
+
+
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2024 China 
+
+            
+                
+
+            
+        </span>
+       
+    
+</div>
+
+
+
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
+
+
+
+
+
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
+</html>

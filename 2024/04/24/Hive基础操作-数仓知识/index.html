@@ -1,208 +1,223 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+    
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta name="description" content="Hive基础操作&amp;数仓知识" />
+    <meta name="hexo-theme-A4" content="v1.9.7" />
+    <link rel="alternate icon" type="image/webp" href="/img/favicon.webp">
+    <title>青氣 | 心之所向，素履以往</title>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"wuang0.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-
-    <meta name="description" content="Hive&amp;数仓数仓（数据仓库）与数据仓库的区别数据库：增删改查 数仓：查询分析">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hive基础操作&amp;数仓知识">
-<meta property="og:url" content="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/">
-<meta property="og:site_name" content="青氣">
-<meta property="og:description" content="Hive&amp;数仓数仓（数据仓库）与数据仓库的区别数据库：增删改查 数仓：查询分析">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png">
-<meta property="og:image" content="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png">
-<meta property="article:published_time" content="2024-04-24T13:43:29.000Z">
-<meta property="article:modified_time" content="2024-04-24T16:30:07.417Z">
-<meta property="article:author" content="吾王">
-<meta property="article:tag" content="Hive 数据仓库 数据库 idea">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png">
-
-
-<link rel="canonical" href="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/","path":"2024/04/24/Hive基础操作-数仓知识/","title":"Hive基础操作&数仓知识"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hive基础操作&数仓知识 | 青氣</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">青氣</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">心之所向，素履以往</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-</header>
+    
         
-  
-  <aside class="sidebar">
+<link rel="stylesheet" href="/css/highlight/style1.css">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+        
+<link rel="stylesheet" href="/css/reset.css">
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-amp-%E6%95%B0%E4%BB%93"><span class="nav-number">1.</span> <span class="nav-text">Hive&amp;数仓</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E4%BB%93%EF%BC%88%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%EF%BC%89%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.0.1.</span> <span class="nav-text">数仓（数据仓库）与数据仓库的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E4%BB%93%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">数仓分层架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hive"><span class="nav-number">1.0.2.</span> <span class="nav-text">Hive</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">库操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">表操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%97%B4%E9%9A%94%E7%AC%A6"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">数据间隔符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E4%B8%8E%E5%A4%96%E9%83%A8%E8%A1%A8"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">内部表与外部表</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        
+<link rel="stylesheet" href="/css/markdown.css">
+
+        
+<link rel="stylesheet" href="/css/fonts.css">
+ 
+         <!--注意：首页既不是post也不是page-->
+        
+        
+        
+<link rel="stylesheet" href="/css/ui.css">
+ 
+        
+<link rel="stylesheet" href="/css/style.css">
+
+
+        
+            <!--返回顶部css-->
+            
+<link rel="stylesheet" href="/css/returnToTop.css">
+
+            
+<link rel="stylesheet" href="/css/unicons.css">
+
+        
+        
+            <!--目录-->
+            
+<link rel="stylesheet" href="/css/toc.css">
+
+        
+    
+
+    
+        
+<link rel="stylesheet" href="/css/returnToLastPage.css">
+
+    
+    
+   
+<link rel="stylesheet" href="/css/lightgallery-bundle.min.css">
+
+
+   
+        
+<link rel="stylesheet" href="/css/custom.css">
+
+    
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+    
+    
+
+    
+    
+
+
+
+    
+
+    
+    
+
+
+
+
+    
+    
+    
+    <body>
+        <script src="/js/darkmode-js.min.js"></script>
+        
+        <script>
+            const options = {
+                bottom: '40px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '42px', // default: 'unset'
+                time: '0.3s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: ' #e4e4e4 ',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: true, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            const darkmode = new Darkmode(options);
+            darkmode.showWidget();
+        </script>
+        
+        
+            <div class="left-toc-container">
+                <nav id="toc" class="bs-docs-sidebar"></nav>
+            </div>
+        
+        <div class="paper">
+            
+            
+            
+            
+                <div class="shadow-drop-2-bottom paper-main">
+                    
+
+
+<div class="header">
+    <div class="header-container">
+        <style>
+            .header-img {
+                width: 56px;
+                height: auto;
+                object-fit: cover; /* 保持图片比例 */
+                transition: transform 0.3s ease-in-out; 
+                border-radius: 0; 
+            }
+            
+        </style>
+        <img 
+            alt="^-^" 
+            cache-control="max-age=86400" 
+            class="header-img" 
+            src="/img/favicon.webp" 
+        />
+        <div class="header-content">
+            <a class="logo" href="/">青氣</a> 
+            <span class="description">个人博客，大数据专业生，学习之路，会接触方方面面的知识，大数据，信息安全。</span> 
         </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">吾王</p>
-  <div class="site-description" itemprop="description">个人博客，大数据专业生，学习之路，会接触方方面面的知识，大数据，信息安全。</div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">6</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
     </div>
+    
+   
+    <ul class="nav">
+        
+            
+                <li><a href="/">首页</a></li>
+            
+        
+            
+                <li><a href="/list/">文章</a></li>
+            
+        
+    </ul>
+</div> 
+        
+                    
+                    
+
+                    
+                    
+                    
+                    <!--说明是文章post页面-->
+                    
+                        <div class="post-main">
+    
 
     
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wuang0.github.io/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="吾王">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="青氣">
-      <meta itemprop="description" content="个人博客，大数据专业生，学习之路，会接触方方面面的知识，大数据，信息安全。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hive基础操作&数仓知识 | 青氣">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Hive基础操作&数仓知识
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-24 21:43:29" itemprop="dateCreated datePublished" datetime="2024-04-24T21:43:29+08:00">2024-04-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-25 00:30:07" itemprop="dateModified" datetime="2024-04-25T00:30:07+08:00">2024-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
+        
+            
+                <div class="post-main-title" style="text-align: center;">
+                    Hive基础操作&amp;数仓知识
+                </div>
+            
+        
+      
+    
 
     
+
+        
+            <div class="post-head-meta-center">
+        
+                
+                    <span>最近更新：2024-04-25</span> 
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                     <span>字数总计：915</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span>阅读估时：3分钟</span>
+                
+                
+                    
+                        &nbsp; | &nbsp;
+                    
+                    <span id="busuanzi_container_page_pv">
+                        阅读量：<span id="busuanzi_value_page_pv"></span>次
+                    </span>
+                
+            </div>
     
-    
-    <div class="post-body" itemprop="articleBody"><h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
+
+    <div class="post-md">
+        
+            
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hive-amp-%E6%95%B0%E4%BB%93"><span class="post-toc-text">Hive&amp;数仓</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E4%BB%93%EF%BC%88%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%EF%BC%89%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">数仓（数据仓库）与数据仓库的区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E4%BB%93%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="post-toc-text">数仓分层架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hive"><span class="post-toc-text">Hive</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="post-toc-text">库操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="post-toc-text">表操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E9%97%B4%E9%9A%94%E7%AC%A6"><span class="post-toc-text">数据间隔符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E4%B8%8E%E5%A4%96%E9%83%A8%E8%A1%A8"><span class="post-toc-text">内部表与外部表</span></a></li></ol></li></ol></li></ol></li></ol>
+            
+        
+        <div class=".article-gallery"><h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
 <p>数仓：<strong>查询分析</strong></p>
 <span id="more"></span>
 <p><strong>操作型处理(数据库)<strong>，叫</strong>联机事务处理OLTP（On-Line Transaction Processing）</strong></p>
@@ -211,105 +226,198 @@
 <p>数据仓库将各个<strong>异构的数据源数据库</strong>的数据给统一管理起来，并且完成了质量较差的数据的剔除、格式转换，最终按照一种合理的建模方式来完成源数据组织形式的转变，以更好的支持到前端的可视化分析。数据仓库的输入方式是各种各样的数据源，最终的输出用于企业的数据分析、数据挖掘、数据报表等方向。</p>
 <h4 id="数仓分层架构"><a href="#数仓分层架构" class="headerlink" title="数仓分层架构"></a>数仓分层架构</h4><p>源数据层(ODS)，数据仓库层(DW)，数据应用层(DZ)。</p>
 <p>ETL是用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程。</p>
-<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png" alt="图片"></p>
+<p><a href="image-20240424234444159.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png" alt="图片"></a></p>
 <h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p>Hive是操作数据仓库的一个工具，使用类SQL语句进行操作。</p>
 <h4 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a><strong>库操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">creat database [if not exists] 数据库名 [location &#x27;/****&#x27;]；</span><br><span class="line"># 创建数据库，其在HDFS的默认路径为/user/hive/warehouse/~.db</span><br><span class="line"># []中内容可加可不加，if not exists 加上时，创建数据库是判断若不存在，则创建数据库。</span><br><span class="line"># location &#x27;/****&#x27;指定一个已经存在的文件夹作为数据库的内容存放位置</span><br><span class="line">show database 数据库；</span><br><span class="line"># 显示数据库内容</span><br><span class="line">use 数据库；</span><br><span class="line"># 使用指定数据库；</span><br><span class="line">drop database if exists 数据库;</span><br><span class="line"># 如果数据库存在且为空，则删除。</span><br><span class="line">drop database if exists 数据库 cascade;</span><br><span class="line"># 如果数据库存在，则删除。</span><br></pre></td></tr></table></figure>
 
 <h4 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a><strong>表操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">create table [if not exists]表名(列名 列数据类型，… …);</span><br><span class="line"># 创建表，并设置数据类型</span><br><span class="line">drop table student;</span><br><span class="line"># 删除表</span><br><span class="line">show tables;</span><br><span class="line"># 查看当前数据库所有表</span><br><span class="line">insert into 表 values (数据，数据);</span><br><span class="line"># 向表中插入数据，可一次插入多条数据。</span><br><span class="line">desc 表名;</span><br><span class="line"># 查看表结构信息；</span><br><span class="line">alter table 旧名 rename to 新名；</span><br><span class="line">#修改表名</span><br><span class="line">alter table 表名 set tblproperties (&#x27;属性名&#x27;=&#x27;属性值&#x27;)；</span><br><span class="line">#修改表属性</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;TRUE&#x27;);</span><br><span class="line">#转为外部表</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;FALSE&#x27;);</span><br><span class="line">#转为内部表</span><br><span class="line">create table student(id int, name string) </span><br><span class="line">row format delimited fields terminated by &#x27;\t&#x27;;</span><br><span class="line">#  创建表并设置表中数据的分隔符(以制表符为例)</span><br></pre></td></tr></table></figure>
 
 <h4 id="数据间隔符"><a href="#数据间隔符" class="headerlink" title="数据间隔符"></a><strong>数据间隔符</strong></h4><p>创建hive基础表的时候,默认的数据间分隔符是：\001(^A)是一种特殊字符，是ASCII值，在Notepad++文本编辑器中是显示为SOH的。</p>
-<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png" alt="图片"></p>
+<p><a href="image-20240425001442191.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png" alt="图片"></a></p>
 <h4 id="内部表与外部表"><a href="#内部表与外部表" class="headerlink" title="内部表与外部表"></a><strong>内部表与外部表</strong></h4><p>内部表删除表时，元数据与数据都会被删除；</p>
 <p>外部表删除只删除metastore的元数据，不删除hdfs中的表数据</p>
 <p>创建表的时候，内部表直接存储在默认的hdfs路径，不带数据;外部表需要自己指定路径,带数据。</p>
-
+</div>
     </div>
 
+    <div class="post-meta">
+        <i>
+        
+            <span>2024-04-24</span>
+            
+                <span>该篇文章被 吾王</span>
+            
+            
+                <span>打上标签:
+                    
+                    
+                        <a href='/tags/Hive-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93-%E6%95%B0%E6%8D%AE%E5%BA%93-idea/'>
+                            Hive 数据仓库 数据库 idea
+                        </a>
+                    
+                </span>
+             
+             
+        
+        </i>
+    </div>
+    <br>
     
     
+        
+            
+    
+            <div class="post-footer-pre-next">
+                
+                    <span>上一篇：<a href='/2024/10/21/Wang-Birthday/'>Wang&amp;Birthday</a></span>
+                
+
+                
+                    <span class="post-footer-pre-next-last-span-right">下一篇：<a href="/2024/04/23/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%AE/">HADOOP一些基础&amp;网络IP配置</a>
+                    </span>
+                
+            </div>
+    
+        
     
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Hive-%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93-%E6%95%B0%E6%8D%AE%E5%BA%93-idea/" rel="tag"># Hive 数据仓库 数据库 idea</a>
-          </div>
-
+    
         
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/04/23/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%AE/" rel="prev" title="HADOOP一些基础&网络IP配置">
-                  <i class="fa fa-angle-left"></i> HADOOP一些基础&网络IP配置
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2024/10/21/Wang-Birthday/" rel="next" title="Wang&Birthday">
-                  Wang&Birthday <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+     
 </div>
 
 
 
+                                      
+                    
+                    
+                    <div class="footer">
+    
+        <span> 
+            © 1949-2024 China 
 
+            
+                
 
-
+            
+        </span>
+       
+    
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">吾王</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
-
-  
 
 
 
+<!--这是指一条线往下的内容-->
+<div class="footer-last">
+    
+            <span>🌊看过大海的人不会忘记海的广阔🌊</span>
+            
+                <span class="footer-last-span-right"><i>本站由<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html">Hexo</a>驱动｜使用<a target="_blank" rel="noopener" href="https://github.com/HiNinoJay/hexo-theme-A4">Hexo-theme-A4</a>主题</i></span>
+            
+    
+</div>
 
 
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-  
+    <!--目录-->
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tocify/1.9.0/javascripts/jquery.tocify.min.js" type="text/javascript" ></script>
+        
+<script src="/js/toc.js"></script>
+
+    
+
+    
+<script src="/js/randomHeaderContent.js"></script>
+
+    <!--回到顶部按钮-->
+    
+        
+<script src="/js/returnToTop.js"></script>
+
+    
+
+    
+        
+<script src="/js/returnToLastPage.js"></script>
+
+    
 
 
 
 
 
-</body>
+<script src="/js/lightgallery/lightgallery.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-thumbnail.umd.min.js"></script>
+
+
+
+<script src="/js/lightgallery/plugins/lg-fullscreen.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-autoplay.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-zoom.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-rotate.umd.min.js"></script>
+
+
+<script src="/js/lightgallery/plugins/lg-paper.umd.min.js"></script>
+
+
+
+
+<script type="text/javascript">
+     
+    if (typeof lightGallery !== "undefined") {
+        var options1 = {
+            selector: '.gallery-item',
+            plugins: [lgThumbnail, lgFullscreen, lgAutoplay, lgZoom, lgRotate, lgPager], // 启用插件
+            thumbnail: true,          // 显示缩略图
+            zoom: true,               // 启用缩放功
+            rotate: true,             // 启用旋转功能能
+            autoplay: true,        // 启用自动播放功能
+            fullScreen: true,      // 启用全屏功能
+            pager: false, //页码,
+            zoomFromOrigin: true,   // 从原始位置缩放
+            actualSize: true,       // 启用查看实际大小的功能
+            enableZoomAfter: 300,    // 延迟缩放，确保图片加载完成后可缩放
+        };
+        lightGallery(document.getElementsByClassName('.article-gallery')[0], options1); // 修复选择器
+    }
+    
+</script>
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 
+
+                </div>
+            
+            
+                <!-- 回到顶部的按钮-->  
+                <div class="progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+            
+                <!-- 返回的按钮-->  
+                <div class="return-to-last-progress-wrap shadow-drop-2-bottom">
+                    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+                    </svg>
+                </div>
+            
+    </body>
 </html>

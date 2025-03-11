@@ -3,7 +3,7 @@
   <entry>
     <title>HADOOP一些基础&amp;网络IP配置</title>
     <url>/2024/04/23/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="HADOOP一些基础-amp-网络IP配置"><a href="#HADOOP一些基础-amp-网络IP配置" class="headerlink" title="HADOOP一些基础&amp;网络IP配置"></a>HADOOP一些基础&amp;网络IP配置</h1><h2 id="HADOOP"><a href="#HADOOP" class="headerlink" title="HADOOP"></a>HADOOP</h2><h5 id="Hadoop的Web界面"><a href="#Hadoop的Web界面" class="headerlink" title="Hadoop的Web界面"></a>Hadoop的Web界面</h5><p>50070端口是Hadoop 浏览器进行访问 namenode 节点，监控其各个 datanode 的服务端口，</p>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="HADOOP一些基础-amp-网络IP配置"><a href="#HADOOP一些基础-amp-网络IP配置" class="headerlink" title="HADOOP一些基础&amp;网络IP配置"></a>HADOOP一些基础&amp;网络IP配置</h1><h2 id="HADOOP"><a href="#HADOOP" class="headerlink" title="HADOOP"></a>HADOOP</h2><h5 id="Hadoop的Web界面"><a href="#Hadoop的Web界面" class="headerlink" title="Hadoop的Web界面"></a>Hadoop的Web界面</h5><p>50070端口是Hadoop 浏览器进行访问 namenode 节点，监控其各个 datanode 的服务端口，</p>
 <ul>
 <li><p>Hadoop-2.x 版本，端口号50070</p>
 </li>
@@ -40,7 +40,7 @@
 <p>Hive 需要指定行分隔符、列分隔符、读取文件数据的方法。默认分隔符是一个键盘输入不了的字符。</p>
 <h2 id="网络IP设置"><a href="#网络IP设置" class="headerlink" title="网络IP设置"></a>网络IP设置</h2><h4 id="VMnet8网络配置"><a href="#VMnet8网络配置" class="headerlink" title="VMnet8网络配置"></a>VMnet8网络配置</h4><p>虚拟机中网卡的配置信息在 <strong>/etc/sysconfig/network-scripts/ifcfg-XXX</strong> 文件中，XXX为设备编号。在CentOS7.0虚拟机中，网卡 <strong>ifcfg-ens33</strong>。</p>
 <p>配置：</p>
-<p><img src="/2024/04/23/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%AE/IP%E8%AE%BE%E7%BD%AE.png" alt="图片"></p>
+<p><a href="IP%E8%AE%BE%E7%BD%AE.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/2024/04/23/HADOOP%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80-%E7%BD%91%E7%BB%9CIP%E9%85%8D%E7%BD%AE/IP%E8%AE%BE%E7%BD%AE.png" alt="图片"></a></p>
 <ol>
 <li><p><strong>BOOTPROTO</strong> 要设为static；</p>
 </li>
@@ -54,7 +54,7 @@
 </li>
 </ol>
 <h4 id="配置好之后，在虚拟机终端中重启网络服务"><a href="#配置好之后，在虚拟机终端中重启网络服务" class="headerlink" title="配置好之后，在虚拟机终端中重启网络服务"></a>配置好之后，在虚拟机终端中重启网络服务</h4><p><strong>sudo systemctl restart network</strong>  #重启网卡</p>
-]]></content>
+</div>]]></content>
       <tags>
         <tag>IP配置、HADOOP shell</tag>
       </tags>
@@ -62,7 +62,7 @@
   <entry>
     <title>Hive基础操作&amp;数仓知识</title>
     <url>/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
 <p>数仓：<strong>查询分析</strong></p>
 <span id="more"></span>
 <p><strong>操作型处理(数据库)<strong>，叫</strong>联机事务处理OLTP（On-Line Transaction Processing）</strong></p>
@@ -71,18 +71,18 @@
 <p>数据仓库将各个<strong>异构的数据源数据库</strong>的数据给统一管理起来，并且完成了质量较差的数据的剔除、格式转换，最终按照一种合理的建模方式来完成源数据组织形式的转变，以更好的支持到前端的可视化分析。数据仓库的输入方式是各种各样的数据源，最终的输出用于企业的数据分析、数据挖掘、数据报表等方向。</p>
 <h4 id="数仓分层架构"><a href="#数仓分层架构" class="headerlink" title="数仓分层架构"></a>数仓分层架构</h4><p>源数据层(ODS)，数据仓库层(DW)，数据应用层(DZ)。</p>
 <p>ETL是用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程。</p>
-<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png" alt="图片"></p>
+<p><a href="image-20240424234444159.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240424234444159.png" alt="图片"></a></p>
 <h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p>Hive是操作数据仓库的一个工具，使用类SQL语句进行操作。</p>
 <h4 id="库操作"><a href="#库操作" class="headerlink" title="库操作"></a><strong>库操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">creat database [if not exists] 数据库名 [location &#x27;/****&#x27;]；</span><br><span class="line"># 创建数据库，其在HDFS的默认路径为/user/hive/warehouse/~.db</span><br><span class="line"># []中内容可加可不加，if not exists 加上时，创建数据库是判断若不存在，则创建数据库。</span><br><span class="line"># location &#x27;/****&#x27;指定一个已经存在的文件夹作为数据库的内容存放位置</span><br><span class="line">show database 数据库；</span><br><span class="line"># 显示数据库内容</span><br><span class="line">use 数据库；</span><br><span class="line"># 使用指定数据库；</span><br><span class="line">drop database if exists 数据库;</span><br><span class="line"># 如果数据库存在且为空，则删除。</span><br><span class="line">drop database if exists 数据库 cascade;</span><br><span class="line"># 如果数据库存在，则删除。</span><br></pre></td></tr></table></figure>
 
 <h4 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a><strong>表操作</strong></h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table [if not exists]表名(列名 列数据类型，… …);</span><br><span class="line"># 创建表，并设置数据类型</span><br><span class="line">drop table student;</span><br><span class="line"># 删除表</span><br><span class="line">show tables;</span><br><span class="line"># 查看当前数据库所有表</span><br><span class="line">insert into 表 values (数据，数据);</span><br><span class="line"># 向表中插入数据，可一次插入多条数据。</span><br><span class="line">desc 表名;</span><br><span class="line"># 查看表结构信息；</span><br><span class="line">alter table 旧名 rename to 新名；</span><br><span class="line">#修改表名</span><br><span class="line">alter table 表名 set tblproperties (&#x27;属性名&#x27;=&#x27;属性值&#x27;)；</span><br><span class="line">#修改表属性</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;TRUE&#x27;);</span><br><span class="line">#转为外部表</span><br><span class="line">alter table student set tblproperties(&#x27;EXTERNAL&#x27;=&#x27;FALSE&#x27;);</span><br><span class="line">#转为内部表</span><br><span class="line">create table student(id int, name string) </span><br><span class="line">row format delimited fields terminated by &#x27;\t&#x27;;</span><br><span class="line">#  创建表并设置表中数据的分隔符(以制表符为例)</span><br></pre></td></tr></table></figure>
 
 <h4 id="数据间隔符"><a href="#数据间隔符" class="headerlink" title="数据间隔符"></a><strong>数据间隔符</strong></h4><p>创建hive基础表的时候,默认的数据间分隔符是：\001(^A)是一种特殊字符，是ASCII值，在Notepad++文本编辑器中是显示为SOH的。</p>
-<p><img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png" alt="图片"></p>
+<p><a href="image-20240425001442191.png" title="图片" class="gallery-item" style="box-shadow: none;"> <img src="/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/image-20240425001442191.png" alt="图片"></a></p>
 <h4 id="内部表与外部表"><a href="#内部表与外部表" class="headerlink" title="内部表与外部表"></a><strong>内部表与外部表</strong></h4><p>内部表删除表时，元数据与数据都会被删除；</p>
 <p>外部表删除只删除metastore的元数据，不删除hdfs中的表数据</p>
 <p>创建表的时候，内部表直接存储在默认的hdfs路径，不带数据;外部表需要自己指定路径,带数据。</p>
-]]></content>
+</div>]]></content>
       <tags>
         <tag>Hive 数据仓库 数据库 idea</tag>
       </tags>
@@ -90,34 +90,17 @@
   <entry>
     <title>Wang&amp;Birthday</title>
     <url>/2024/10/21/Wang-Birthday/</url>
-    <content><![CDATA[<h1 id="小萌今天生日"><a href="#小萌今天生日" class="headerlink" title="小萌今天生日"></a>小萌今天生日</h1><p>大家可以给我送上一份祝福嘛！</p>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="小萌今天生日"><a href="#小萌今天生日" class="headerlink" title="小萌今天生日"></a>小萌今天生日</h1><p>大家可以给我送上一份祝福嘛！</p>
 <p>朋友圈评论去，这个地方评论区还没做出来！</p>
-]]></content>
+</div>]]></content>
       <tags>
         <tag>Birthday</tag>
       </tags>
   </entry>
   <entry>
-    <title>article title</title>
-    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
-    <content><![CDATA[<p>文明是生存的火种！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>致橡树</title>
-    <url>/2023/11/21/%E8%87%B4%E6%A9%A1%E6%A0%91/</url>
-    <content><![CDATA[<p>致橡树<br>我如果爱你——<br>绝不像攀援的凌霄花，<br>借你的高枝炫耀自己；<br>我如果爱你——<br>绝不学痴情的鸟儿，<br>为绿荫重复单调的歌曲；</p>
-<span id="more"></span>
-<p>也不止像泉源，<br>常年送来清凉的慰藉；<br>也不止像险峰，<br>增加你的高度，衬托你的威仪。<br>甚至日光。<br>甚至春雨。<br>不，这些都还不够！<br>我必须是你近旁的一株木棉，<br>作为树的形象和你站在一起。<br>根，紧握在地下，<br>叶，相触在云里。<br>每一阵风过，<br>我们都互相致意，<br>但没有人，<br>听懂我们的言语。<br>你有你的铜枝铁干，<br>像刀，像剑，<br>也像戟；<br>我有我红硕的花朵，<br>像沉重的叹息，<br>又像英勇的火炬。<br>我们分担寒潮、风雷、霹雳；<br>我们共享雾霭、流岚、虹霓。<br>仿佛永远分离，<br>却又终身相依。<br>这才是伟大的爱情，<br>坚贞就在这里：<br>爱——<br>不仅爱你伟岸的身躯，<br>也爱你坚持的位置，足下的土地。</p>
-]]></content>
-      <tags>
-        <tag>文</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>初识HADOOP</title>
     <url>/2024/04/22/%E5%88%9D%E8%AF%86HADOOP/</url>
-    <content><![CDATA[<h1 id="初始HADOOP"><a href="#初始HADOOP" class="headerlink" title="初始HADOOP"></a>初始HADOOP</h1><h3 id="集群与分布式的区别是？"><a href="#集群与分布式的区别是？" class="headerlink" title="集群与分布式的区别是？"></a>集群与分布式的区别是？</h3><span id="more"></span>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="初始HADOOP"><a href="#初始HADOOP" class="headerlink" title="初始HADOOP"></a>初始HADOOP</h1><h3 id="集群与分布式的区别是？"><a href="#集群与分布式的区别是？" class="headerlink" title="集群与分布式的区别是？"></a>集群与分布式的区别是？</h3><span id="more"></span>
 
 <h4 id="分布式："><a href="#分布式：" class="headerlink" title="分布式："></a>分布式：</h4><p>把一个大业务拆分成多个子业务，每个子业务都是一套独立的系统，子业务之间相互协作最终完成整体的大业务。</p>
 <h4 id="集群："><a href="#集群：" class="headerlink" title="集群："></a>集群：</h4><p>把处理同一个业务的系统部署多个节点 。</p>
@@ -135,9 +118,26 @@
 <p>YARN：</p>
 <p>运算资源调度系统</p>
 <p>YARN主要由 ResourceManager、NodeManage 等组成。</p>
-]]></content>
+</div>]]></content>
       <tags>
         <tag>实训周</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>article title</title>
+    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
+    <content><![CDATA[<div class=".article-gallery"><p>文明是生存的火种！</p>
+</div>]]></content>
+  </entry>
+  <entry>
+    <title>致橡树</title>
+    <url>/2023/11/21/%E8%87%B4%E6%A9%A1%E6%A0%91/</url>
+    <content><![CDATA[<div class=".article-gallery"><p>致橡树<br>我如果爱你——<br>绝不像攀援的凌霄花，<br>借你的高枝炫耀自己；<br>我如果爱你——<br>绝不学痴情的鸟儿，<br>为绿荫重复单调的歌曲；</p>
+<span id="more"></span>
+<p>也不止像泉源，<br>常年送来清凉的慰藉；<br>也不止像险峰，<br>增加你的高度，衬托你的威仪。<br>甚至日光。<br>甚至春雨。<br>不，这些都还不够！<br>我必须是你近旁的一株木棉，<br>作为树的形象和你站在一起。<br>根，紧握在地下，<br>叶，相触在云里。<br>每一阵风过，<br>我们都互相致意，<br>但没有人，<br>听懂我们的言语。<br>你有你的铜枝铁干，<br>像刀，像剑，<br>也像戟；<br>我有我红硕的花朵，<br>像沉重的叹息，<br>又像英勇的火炬。<br>我们分担寒潮、风雷、霹雳；<br>我们共享雾霭、流岚、虹霓。<br>仿佛永远分离，<br>却又终身相依。<br>这才是伟大的爱情，<br>坚贞就在这里：<br>爱——<br>不仅爱你伟岸的身躯，<br>也爱你坚持的位置，足下的土地。</p>
+</div>]]></content>
+      <tags>
+        <tag>文</tag>
       </tags>
   </entry>
 </search>
