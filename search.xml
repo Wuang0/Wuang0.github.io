@@ -60,16 +60,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Wang&amp;Birthday</title>
-    <url>/2024/10/21/Wang-Birthday/</url>
-    <content><![CDATA[<div class=".article-gallery"><h1 id="小萌今天生日"><a href="#小萌今天生日" class="headerlink" title="小萌今天生日"></a>小萌今天生日</h1><p>大家可以给我送上一份祝福嘛！</p>
-<p>朋友圈评论去，这个地方评论区还没做出来！</p>
-</div>]]></content>
-      <tags>
-        <tag>Birthday</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hive基础操作&amp;数仓知识</title>
     <url>/2024/04/24/Hive%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C-%E6%95%B0%E4%BB%93%E7%9F%A5%E8%AF%86/</url>
     <content><![CDATA[<div class=".article-gallery"><h1 id="Hive-amp-数仓"><a href="#Hive-amp-数仓" class="headerlink" title="Hive&amp;数仓"></a>Hive&amp;数仓</h1><h3 id="数仓（数据仓库）与数据仓库的区别"><a href="#数仓（数据仓库）与数据仓库的区别" class="headerlink" title="数仓（数据仓库）与数据仓库的区别"></a>数仓（数据仓库）与数据仓库的区别</h3><p>数据库：<strong>增删改查</strong></p>
@@ -98,12 +88,6 @@
       </tags>
   </entry>
   <entry>
-    <title>article title</title>
-    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
-    <content><![CDATA[<div class=".article-gallery"><p>文明是生存的火种！</p>
-</div>]]></content>
-  </entry>
-  <entry>
     <title>初识HADOOP</title>
     <url>/2024/04/22/%E5%88%9D%E8%AF%86HADOOP/</url>
     <content><![CDATA[<div class=".article-gallery"><h1 id="初始HADOOP"><a href="#初始HADOOP" class="headerlink" title="初始HADOOP"></a>初始HADOOP</h1><h3 id="集群与分布式的区别是？"><a href="#集群与分布式的区别是？" class="headerlink" title="集群与分布式的区别是？"></a>集群与分布式的区别是？</h3><span id="more"></span>
@@ -130,6 +114,12 @@
       </tags>
   </entry>
   <entry>
+    <title>article title</title>
+    <url>/2023/02/13/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/</url>
+    <content><![CDATA[<div class=".article-gallery"><p>文明是生存的火种！</p>
+</div>]]></content>
+  </entry>
+  <entry>
     <title>致橡树</title>
     <url>/2023/11/21/%E8%87%B4%E6%A9%A1%E6%A0%91/</url>
     <content><![CDATA[<div class=".article-gallery"><p>致橡树<br>我如果爱你——<br>绝不像攀援的凌霄花，<br>借你的高枝炫耀自己；<br>我如果爱你——<br>绝不学痴情的鸟儿，<br>为绿荫重复单调的歌曲；</p>
@@ -139,5 +129,169 @@
       <tags>
         <tag>文</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Wang&amp;Birthday</title>
+    <url>/2024/10/21/Wang-Birthday/</url>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="小萌今天生日"><a href="#小萌今天生日" class="headerlink" title="小萌今天生日"></a>小萌今天生日</h1><p>大家可以给我送上一份祝福嘛！</p>
+<p>朋友圈评论去，这个地方评论区还没做出来！</p>
+</div>]]></content>
+      <tags>
+        <tag>Birthday</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java</title>
+    <url>/2025/03/18/Java_/</url>
+    <content><![CDATA[<div class=".article-gallery"><h1 id="Java-学习路线"><a href="#Java-学习路线" class="headerlink" title="Java 学习路线"></a>Java 学习路线</h1><h2 id="1-Java-基础"><a href="#1-Java-基础" class="headerlink" title="1. Java 基础"></a>1. Java 基础</h2><ul>
+<li><strong>数据类型</strong>: 基本类型（int, double, char）与引用类型</li>
+<li><strong>变量和常量</strong>： </li>
+<li><strong>运算符</strong>: 算术、逻辑、关系、位运算</li>
+<li><strong>流程控制</strong>: if-else, switch, for, while, do-while</li>
+<li><strong>方法</strong>: 参数传递（值传递 vs. 引用传递）</li>
+</ul>
+<h2 id="2-面向对象编程（OOP）"><a href="#2-面向对象编程（OOP）" class="headerlink" title="2. 面向对象编程（OOP）"></a>2. 面向对象编程（OOP）</h2><ul>
+<li><strong>类与对象</strong></li>
+<li><strong>构造方法与初始化块</strong></li>
+<li><strong>封装</strong>: private, public, protected</li>
+<li><strong>继承与多态</strong>: extends, super, 方法重写</li>
+<li><strong>抽象类与接口</strong>: abstract, interface</li>
+<li><strong>静态成员</strong>: static 变量和方法</li>
+<li><strong>内部类</strong>: 内部类和匿名类</li>
+</ul>
+<h2 id="3-Java-核心类库"><a href="#3-Java-核心类库" class="headerlink" title="3. Java 核心类库"></a>3. Java 核心类库</h2><ul>
+<li><strong>字符串</strong>: String, StringBuilder, StringBuffer</li>
+<li><strong>包装类</strong>: Integer, Long, Double, Float, Short, Byte</li>
+<li><strong>泛型与类型擦除</strong></li>
+<li><strong>Java反射</strong>: Class, Field, Method, Constructor</li>
+<li><strong>Java I/o</strong>: File, Scanner, PrintWriter</li>
+<li><strong>集合框架</strong>: List, Set, Map, Queue</li>
+<li><strong>时间 API</strong>: LocalDate, LocalTime, DateTimeFormatter</li>
+<li><strong>文件操作</strong>: File, BufferedReader, BufferedWriter</li>
+</ul>
+<h2 id="4-异常处理"><a href="#4-异常处理" class="headerlink" title="4. 异常处理"></a>4. 异常处理</h2><ul>
+<li><strong>异常的分类</strong>：(受检异常 vs. 非受检异常)</li>
+<li><strong>try-catch-finally</strong></li>
+<li><strong>throws 和 throw</strong></li>
+<li><strong>自定义异常</strong></li>
+</ul>
+<h2 id="5-多线程与并发"><a href="#5-多线程与并发" class="headerlink" title="5. 多线程与并发"></a>5. 多线程与并发</h2><ul>
+<li><strong>线程创建</strong>: Thread, Runnable</li>
+<li><strong>线程池</strong>: ExecutorService, ScheduledThreadPool</li>
+<li><strong>锁机制</strong>: synchronized, Lock, Atomic 变量</li>
+<li><strong>线程间通信</strong>: wait, notify, notifyAll</li>
+<li><strong>volatile、Lock、Atomic</strong></li>
+<li><strong>并发工具</strong>: CountDownLatch, CyclicBarrier, Semaphore</li>
+</ul>
+<h2 id="6-Java-虚拟机（JVM）"><a href="#6-Java-虚拟机（JVM）" class="headerlink" title="6. Java 虚拟机（JVM）"></a>6. Java 虚拟机（JVM）</h2><ul>
+<li><strong>JVM运行原理</strong></li>
+<li><strong>类加载机制</strong></li>
+<li><strong>内存管理</strong>: 堆、栈、方法区</li>
+<li><strong>垃圾回收（GC）</strong></li>
+</ul>
+<h2 id="7-1-Java网络编程"><a href="#7-1-Java网络编程" class="headerlink" title="7-1. Java网络编程"></a>7-1. Java网络编程</h2><ul>
+<li><strong>Socket</strong>: 客户端/服务器模型，TCP/IP协议</li>
+<li><strong>HttpURLConnection</strong>: 发送请求，接收响应</li>
+<li><strong>okhttp</strong>: 异步请求，支持缓存</li>
+<li><strong>httpclient</strong>: 同步请求，支持缓存</li>
+</ul>
+<h2 id="7-2Java8-新特性"><a href="#7-2Java8-新特性" class="headerlink" title="7-2Java8+新特性"></a>7-2Java8+新特性</h2><ul>
+<li><strong>Lambda 表达式</strong></li>
+<li><strong>Stream API</strong></li>
+<li><strong>Optional 类</strong></li>
+<li><strong>方法引用（::）</strong></li>
+<li><strong>CompletableFuture</strong><h2 id="7-3-Spring-框架"><a href="#7-3-Spring-框架" class="headerlink" title="7-3. Spring 框架"></a>7-3. Spring 框架</h2></li>
+<li><strong>Spring 核心概念(IOC\AOP)</strong></li>
+<li><strong>Spring Boot</strong></li>
+<li><strong>Spring MVC</strong></li>
+<li><strong>Spring 事务管理</strong></li>
+<li><strong>Spring Security</strong></li>
+<li><strong>MyBatis与数据库操作</strong></li>
+<li><strong>Spring Cloud</strong><h2 id="7-4-数据库与持久化"><a href="#7-4-数据库与持久化" class="headerlink" title="7-4. 数据库与持久化"></a>7-4. 数据库与持久化</h2></li>
+<li><strong>JDBC</strong>: 数据库连接，SQL 语句执行</li>
+<li><strong>Hibernate</strong>: 对象关系映射，SQL 语句生成</li>
+<li><strong>MyBatis</strong>: SQL 映射，SQL 语句生成</li>
+<li><strong>Mysql基础</strong>：（CRUD、索引、事务）</li>
+<li><strong>Redis基础</strong>：（数据类型、数据结构、命令）</li>
+<li><strong>JPA</strong>: Java Persistence API，ORM 框架<h2 id="7-Web-开发"><a href="#7-Web-开发" class="headerlink" title="7. Web 开发"></a>7. Web 开发</h2></li>
+<li><strong>Spring Boot</strong>: 快速开发 Web 应用</li>
+<li><strong>Spring MVC</strong>: REST API 开发</li>
+<li><strong>前端技术</strong>: HTML, CSS, JavaScript</li>
+<li><strong>数据库交互</strong>: MyBatis, Hibernate</li>
+<li><strong>安全</strong>: Spring Security, JWT</li>
+</ul>
+<h2 id="8-数据处理"><a href="#8-数据处理" class="headerlink" title="8. 数据处理"></a>8. 数据处理</h2><ul>
+<li><strong>数据操作</strong>: JDBC, MyBatis, Hibernate</li>
+<li><strong>流式计算</strong>: Java Stream API, Kafka, Spark</li>
+<li><strong>大数据处理</strong>: Hadoop, Hive</li>
+<li><strong>缓存</strong>: Redis</li>
+</ul>
+<h2 id="9-微服务架构"><a href="#9-微服务架构" class="headerlink" title="9. 微服务架构"></a>9. 微服务架构</h2><ul>
+<li><strong>Spring Cloud 组件</strong>: Eureka, Ribbon, Feign, Gateway</li>
+<li><strong>Docker 容器化部署</strong></li>
+<li><strong>Kubernetes 负载均衡</strong></li>
+<li><strong>分布式事务管理</strong></li>
+</ul>
+<h2 id="10-Java-开发工具"><a href="#10-Java-开发工具" class="headerlink" title="10. Java 开发工具"></a>10. Java 开发工具</h2><ul>
+<li><strong>项目管理</strong>: Maven, Gradle</li>
+<li><strong>版本控制</strong>: Git, GitHub</li>
+<li><strong>开发环境</strong>: IntelliJ IDEA, VS Code</li>
+</ul>
+<h1 id="🚀Java-方向对比分析"><a href="#🚀Java-方向对比分析" class="headerlink" title="🚀Java 方向对比分析"></a>🚀Java 方向对比分析</h1><table>
+<thead>
+<tr>
+<th>方向</th>
+<th>主要特点</th>
+<th>相关技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Web 开发</strong></td>
+<td>主要用于构建网站和 Web 应用</td>
+<td>Spring Boot, Spring MVC, Thymeleaf, HTML/CSS/JS, REST API</td>
+</tr>
+<tr>
+<td><strong>数据处理</strong></td>
+<td>侧重于大数据分析、数据存储与计算</td>
+<td>Java Stream API, JDBC, MyBatis, Hadoop, Spark, Kafka, Redis</td>
+</tr>
+<tr>
+<td><strong>微服务架构</strong></td>
+<td>构建可扩展、高可用的分布式系统</td>
+<td>Spring Cloud, Docker, Kubernetes, Nginx, Gateway, Eureka, Feign</td>
+</tr>
+</tbody></table>
+<h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><h3 id="1-Web-开发"><a href="#1-Web-开发" class="headerlink" title="1. Web 开发"></a>1. Web 开发</h3><ul>
+<li><strong>目标</strong>: 构建前后端交互的 Web 应用，处理 HTTP 请求。</li>
+<li><strong>技术栈</strong>:<ul>
+<li>Spring Boot / Spring MVC 处理后端业务逻辑</li>
+<li>Thymeleaf / Vue.js / React 进行前端渲染</li>
+<li>MyBatis / Hibernate 进行数据库交互</li>
+<li>Spring Security / JWT 进行用户认证与授权</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-数据处理"><a href="#2-数据处理" class="headerlink" title="2. 数据处理"></a>2. 数据处理</h3><ul>
+<li><strong>目标</strong>: 处理、存储和分析大规模数据。</li>
+<li><strong>技术栈</strong>:<ul>
+<li>JDBC / MyBatis 进行数据库交互</li>
+<li>Java Stream API / Spark 进行数据流处理</li>
+<li>Hadoop / Hive 处理大数据存储</li>
+<li>Kafka / Redis 进行高效数据缓存</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-微服务架构"><a href="#3-微服务架构" class="headerlink" title="3. 微服务架构"></a>3. 微服务架构</h3><ul>
+<li><strong>目标</strong>: 让应用拆分为多个独立服务，提高可扩展性。</li>
+<li><strong>技术栈</strong>:<ul>
+<li>Spring Cloud 组件（Eureka, Ribbon, Feign, Gateway）</li>
+<li>Docker 进行服务容器化</li>
+<li>Kubernetes 进行服务编排</li>
+<li>Nginx 进行负载均衡</li>
+<li>分布式事务管理</li>
+</ul>
+</li>
+</ul>
+</div>]]></content>
   </entry>
 </search>
